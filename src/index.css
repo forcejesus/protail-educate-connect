@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -35,7 +35,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 217 91.2% 23.9%;
     --sidebar-foreground: 210 40% 98%;
@@ -45,6 +45,10 @@
     --sidebar-accent-foreground: 210 40% 98%;
     --sidebar-border: 217 71.4% 30.1%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --congo-red: 0 80% 50%;
+    --congo-green: 135 70% 35%;
+    --congo-yellow: 45 100% 60%;
   }
 
   .dark {
@@ -93,6 +97,7 @@
 
   body {
     @apply bg-background text-foreground font-sans;
+    scroll-behavior: smooth;
   }
 }
 
@@ -101,8 +106,38 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.4s ease-out forwards;
+}
+
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
 }
 
 .protail-container {
@@ -118,5 +153,25 @@
 }
 
 .card-hover {
-  @apply transition-transform duration-300 hover:shadow-lg hover:-translate-y-1;
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+.glass-effect {
+  @apply backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border border-white/20 dark:border-slate-700/20 shadow-lg;
+}
+
+.congo-gradient {
+  @apply bg-gradient-to-r from-[#e11e1e] via-[#ffcc00] to-[#008A37];
+}
+
+.congo-text-gradient {
+  @apply bg-gradient-to-r from-[#e11e1e] via-[#ffcc00] to-[#008A37] bg-clip-text text-transparent;
+}
+
+.btn-congo {
+  @apply bg-[#e11e1e] hover:bg-[#c71a1a] text-white;
+}
+
+.btn-congo-outline {
+  @apply border-2 border-[#e11e1e] text-[#e11e1e] hover:bg-[#e11e1e]/10;
 }
