@@ -9,6 +9,7 @@ const Directory = () => {
       <Header />
       <main className="flex-grow">
         <div className="protail-container py-8">
+          <h1 className="page-title mb-8">Annuaire des Établissements</h1>
           <SchoolDirectory />
         </div>
       </main>

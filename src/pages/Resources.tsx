@@ -9,6 +9,7 @@ const Resources = () => {
       <Header />
       <main className="flex-grow">
         <div className="protail-container py-8">
+          <h1 className="page-title mb-8">Centre de Ressources</h1>
           <ResourceCenter />
         </div>
       </main>

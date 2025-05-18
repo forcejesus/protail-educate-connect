@@ -67,12 +67,12 @@ const Index = () => {
       <Header />
       
       <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-b from-dgesup-primary to-dgesup-secondary text-white">
+        {/* Hero Section with Gradient Background */}
+        <section className="bg-gradient-to-br from-dgesup-primary to-dgesup-secondary text-white">
           <div className="protail-container py-16 md:py-24">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div className="space-y-6">
-                <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+                <h1 className="text-4xl md:text-5xl font-bold leading-tight animate-fade-in">
                   Protail DGESUP pour les Établissements Privés
                 </h1>
                 <p className="text-lg md:text-xl opacity-90">
@@ -80,7 +80,7 @@ const Index = () => {
                   la génération d'attestations et l'accès aux ressources officielles.
                 </p>
                 <div className="pt-4 flex flex-col sm:flex-row gap-4">
-                  <Button asChild size="lg" className="bg-white text-dgesup-primary hover:bg-gray-100">
+                  <Button asChild size="lg" className="bg-white text-dgesup-primary hover:bg-gray-100 shadow-md">
                     <Link to="/login">Connexion Établissement</Link>
                   </Button>
                   <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
@@ -92,14 +92,14 @@ const Index = () => {
                 <img 
                   src="/placeholder.svg" 
                   alt="DGESUP Platform" 
-                  className="max-w-full h-auto rounded-lg shadow-2xl"
+                  className="max-w-full h-auto rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-300"
                 />
               </div>
             </div>
           </div>
         </section>
         
-        {/* Features Section */}
+        {/* Features Section with Card Hover Effect */}
         <section className="py-16 bg-white">
           <div className="protail-container">
             <div className="text-center mb-12">
@@ -113,7 +113,7 @@ const Index = () => {
               {features.map((feature, index) => (
                 <div 
                   key={index} 
-                  className="p-6 bg-white border rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                  className="p-6 bg-white border rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                 >
                   <div className="mb-4">
                     {feature.icon}
@@ -130,7 +130,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Statistics Section */}
+        {/* Statistics Section with Enhanced Design */}
         <section className="py-16 bg-gray-50">
           <div className="protail-container">
             <div className="text-center mb-12">
@@ -141,25 +141,25 @@ const Index = () => {
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+              <div className="bg-white p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-all">
                 <div className="text-4xl font-bold text-dgesup-accent mb-2">45+</div>
                 <div className="text-lg font-medium">Établissements</div>
                 <div className="text-sm text-muted-foreground">enregistrés sur la plateforme</div>
               </div>
               
-              <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+              <div className="bg-white p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-all">
                 <div className="text-4xl font-bold text-dgesup-accent mb-2">12k+</div>
                 <div className="text-lg font-medium">Étudiants</div>
                 <div className="text-sm text-muted-foreground">gérés via le système</div>
               </div>
               
-              <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+              <div className="bg-white p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-all">
                 <div className="text-4xl font-bold text-dgesup-accent mb-2">5k+</div>
                 <div className="text-lg font-medium">Attestations</div>
                 <div className="text-sm text-muted-foreground">générées avec QR code</div>
               </div>
               
-              <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+              <div className="bg-white p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-all">
                 <div className="text-4xl font-bold text-dgesup-accent mb-2">98%</div>
                 <div className="text-lg font-medium">Satisfaction</div>
                 <div className="text-sm text-muted-foreground">des utilisateurs</div>
@@ -168,14 +168,14 @@ const Index = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="bg-dgesup-primary text-white py-16">
+        {/* CTA Section with Enhanced Design */}
+        <section className="bg-gradient-to-r from-dgesup-primary to-dgesup-secondary text-white py-16">
           <div className="protail-container text-center">
             <h2 className="text-3xl font-bold mb-6">Rejoignez le Protail DGESUP</h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
               Votre établissement privé n'est pas encore enregistré? Contactez-nous pour intégrer la plateforme officielle du Ministère de l'Enseignement Supérieur.
             </p>
-            <Button asChild size="lg" className="bg-white text-dgesup-primary hover:bg-gray-100">
+            <Button asChild size="lg" className="bg-white text-dgesup-primary hover:bg-gray-100 shadow-md">
               <a href="#">Demande d'Accréditation</a>
             </Button>
           </div>

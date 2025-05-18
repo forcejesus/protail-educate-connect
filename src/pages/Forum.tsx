@@ -9,6 +9,7 @@ const Forum = () => {
       <Header />
       <main className="flex-grow">
         <div className="protail-container py-8">
+          <h1 className="page-title mb-8">Forum et Annonces</h1>
           <AnnouncementsList />
         </div>
       </main>
