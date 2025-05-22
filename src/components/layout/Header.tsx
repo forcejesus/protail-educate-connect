@@ -69,14 +69,13 @@ const Header = () => {
                     <Link 
                       key={link.path}
                       to={link.path}
-                      className={`py-2 px-4 rounded-md transition-colors ${
+                      className={`py-2 px-4 rounded-md transition-colors animate-slide-in ${
                         isActive(link.path) 
                           ? "bg-[#e11e1e]/10 text-[#e11e1e] font-medium" 
                           : "hover:bg-gray-100"
                       }`}
                       onClick={() => setIsOpen(false)}
                       style={{ animationDelay: `${(index + 1) * 50}ms` }}
-                      className="animate-slide-in"
                     >
                       {link.name}
                     </Link>
