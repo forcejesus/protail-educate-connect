@@ -67,6 +67,19 @@ const DashboardLayout = () => {
           
           <SidebarFooter>
             <div className="p-2 flex flex-col gap-2">
+              {/* École information added before theme toggle */}
+              <div className="border-t pt-2 mb-2">
+                <div className="flex items-center">
+                  <div className="w-8 h-8 border-2 border-gray-400 rounded-full flex items-center justify-center text-xs text-gray-600 mr-2">
+                    ÉC
+                  </div>
+                  <div className="text-sm">
+                    <p className="font-semibold">École Nationale</p>
+                    <p className="text-xs text-muted-foreground">Brazzaville, Congo</p>
+                  </div>
+                </div>
+              </div>
+              
               <div className="flex justify-between">
                 <Toggle
                   aria-label="Toggle theme"

@@ -28,7 +28,7 @@ export const usePDFGeneration = () => {
           creator: "Système de Gestion Académique DGESUP",
         });
 
-        // Logo du ministère en haut au centre
+        // Logo du ministère en haut au centre - position ajustée
         const logoWidth = 25;
         const logoHeight = 25;
         const pageWidth = 210; // A4 width in mm
@@ -36,27 +36,27 @@ export const usePDFGeneration = () => {
         
         // Créer un rectangle pour représenter le logo du ministère
         doc.setFillColor(200, 200, 200);
-        doc.rect(logoX, 15, logoWidth, logoHeight, 'F');
+        doc.rect(logoX, 20, logoWidth, logoHeight, 'F');
         doc.setFontSize(8);
-        doc.text("LOGO MINISTÈRE", logoX + logoWidth/2, 27.5, { align: "center" });
+        doc.text("LOGO MINISTÈRE", logoX + logoWidth/2, 32.5, { align: "center" });
 
-        // En-tête avec informations officielles
+        // En-tête avec informations officielles - position ajustée
         doc.setFontSize(16);
         doc.setFont("helvetica", "bold");
-        doc.text("RÉPUBLIQUE DU CONGO", 105, 50, { align: "center" });
+        doc.text("RÉPUBLIQUE DU CONGO", 105, 55, { align: "center" });
         
         doc.setFontSize(12);
         doc.setFont("helvetica", "normal");
-        doc.text("MINISTÈRE DE L'ENSEIGNEMENT SUPÉRIEUR", 105, 58, { align: "center" });
-        doc.text("ET DE LA RECHERCHE SCIENTIFIQUE", 105, 65, { align: "center" });
+        doc.text("MINISTÈRE DE L'ENSEIGNEMENT SUPÉRIEUR", 105, 63, { align: "center" });
+        doc.text("ET DE LA RECHERCHE SCIENTIFIQUE", 105, 70, { align: "center" });
         
         doc.setFontSize(10);
         doc.setFont("helvetica", "bold");
-        doc.text("DIRECTION GÉNÉRALE DE L'ENSEIGNEMENT SUPÉRIEUR", 105, 75, { align: "center" });
+        doc.text("DIRECTION GÉNÉRALE DE L'ENSEIGNEMENT SUPÉRIEUR", 105, 80, { align: "center" });
 
         // Ligne de séparation
         doc.setLineWidth(0.5);
-        doc.line(20, 85, 190, 85);
+        doc.line(20, 90, 190, 90);
 
         // Titre de l'attestation
         doc.setFontSize(16);
@@ -64,13 +64,13 @@ export const usePDFGeneration = () => {
         const titleText = attestation.attestationType === "success" 
           ? "ATTESTATION DE VALIDATION DE PARCOURS" 
           : "ATTESTATION DE SCOLARITÉ";
-        doc.text(titleText, 105, 100, { align: "center" });
+        doc.text(titleText, 105, 105, { align: "center" });
         
         // Numéro d'attestation
         doc.setFontSize(10);
         doc.setFont("helvetica", "normal");
         const attestationNumber = `N° ATT-${new Date().getFullYear()}-${String(Math.floor(Math.random() * 10000)).padStart(4, '0')}`;
-        doc.text(attestationNumber, 105, 110, { align: "center" });
+        doc.text(attestationNumber, 105, 115, { align: "center" });
 
         // Corps de l'attestation
         doc.setFontSize(11);
@@ -82,7 +82,7 @@ export const usePDFGeneration = () => {
           day: 'numeric'
         });
 
-        let yPosition = 125;
+        let yPosition = 130;
         
         // Texte de formalité
         doc.text("Le Directeur Général de l'Enseignement Supérieur,", 20, yPosition);

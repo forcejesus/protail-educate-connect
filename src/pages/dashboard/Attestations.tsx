@@ -8,6 +8,7 @@ import AttestationSearch from "@/components/attestations/AttestationSearch";
 import AttestationList, { Attestation } from "@/components/attestations/AttestationList";
 import GenerateAttestationDialog from "@/components/attestations/GenerateAttestationDialog";
 import AttestationPreviewDialog from "@/components/attestations/AttestationPreviewDialog";
+import { usePDFGeneration } from "@/components/attestations/hooks/usePDFGeneration";
 
 // Mock data for students with attestation data
 const mockAttestations = [
@@ -31,6 +32,7 @@ const DashboardAttestations = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [showPreviewDialog, setShowPreviewDialog] = useState(false);
   const [previewAttestation, setPreviewAttestation] = useState<any>(null);
+  const { generatePDF } = usePDFGeneration();
 
   // Filter attestations based on search term
   const filteredAttestations = mockAttestations.filter(attestation => {
@@ -51,6 +53,22 @@ const DashboardAttestations = () => {
         verificationUrl: `https://votre-ecole.edu/verify/${attestation.matricule}`,
       });
       setShowPreviewDialog(true);
+    }
+  };
+  
+  // Print attestation directly
+  const handlePrintAttestation = (attestation: Attestation) => {
+    const student = mockStudents.find(s => s.matricule === attestation.matricule);
+    if (student) {
+      const attestationData = {
+        ...student,
+        attestationType: attestation.type === "Licence" ? "success" : "enrollment",
+        status: attestation.status,
+        date: attestation.date,
+        id: attestation.id,
+        verificationUrl: `https://votre-ecole.edu/verify/${attestation.matricule}`,
+      };
+      generatePDF(attestationData);
     }
   };
 
@@ -80,7 +98,8 @@ const DashboardAttestations = () => {
         <CardContent>
           <AttestationList 
             attestations={filteredAttestations} 
-            onViewAttestation={handleViewAttestation} 
+            onViewAttestation={handleViewAttestation}
+            onPrintAttestation={handlePrintAttestation}
           />
         </CardContent>
       </Card>
