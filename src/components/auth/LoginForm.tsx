@@ -26,7 +26,7 @@ import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
   email: z.string().email("Veuillez entrer une adresse email valide"),
-  password: z.string().min(8, "Le mot de passe doit contenir au moins 8 caractères"),
+  password: z.string().min(1, "Le mot de passe est requis"),
 });
 
 const LoginForm = () => {
@@ -49,8 +49,9 @@ const LoginForm = () => {
     setTimeout(() => {
       setIsLoading(false);
       
-      // Mock authentication - in real app, this would verify credentials with backend
-      if (values.email === "admin@dgesup.cg" && values.password === "password123") {
+      // Mock authentication - simplified to allow multiple admin credentials
+      if ((values.email === "admin@dgesup.cg" && values.password === "admin") || 
+          (values.email === "admin@dgesup.cg" && values.password === "password123")) {
         toast({
           title: "Connexion réussie",
           description: "Bienvenue sur le Protail DGESUP",
