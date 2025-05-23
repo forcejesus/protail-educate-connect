@@ -3,8 +3,6 @@ import { QRCodeSVG } from "qrcode.react";
 import { Printer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import AttestationPreviewHeader from "./AttestationPreviewHeader";
-import AttestationPreviewFooter from "./AttestationPreviewFooter";
 import { usePDFGeneration } from "./hooks/usePDFGeneration";
 
 interface AttestationPreviewContentProps {
@@ -25,28 +23,23 @@ const AttestationPreviewContent = ({ attestation }: AttestationPreviewContentPro
   return (
     <Card className="mt-6 print:shadow-none">
       <CardHeader className="text-center border-b print:border-black">
-        <div className="flex justify-between items-start mb-4">
-          {/* Logo Ministère */}
+        <div className="flex justify-center items-center mb-6">
+          {/* Logo Ministère centré */}
           <div className="flex flex-col items-center">
-            <div className="w-16 h-16 border-2 border-gray-400 flex items-center justify-center text-xs text-gray-600">
-              LOGO<br/>MINISTÈRE
-            </div>
+            <img 
+              src="/lovable-uploads/8be3e1ab-1767-4b8b-be3d-2a0f786fee5c.png" 
+              alt="Logo République du Congo" 
+              className="w-20 h-20 object-contain"
+            />
           </div>
-          
-          {/* En-tête central */}
-          <div className="flex-1 text-center">
-            <h2 className="text-lg font-bold">RÉPUBLIQUE DU CONGO</h2>
-            <p className="text-sm">MINISTÈRE DE L'ENSEIGNEMENT SUPÉRIEUR</p>
-            <p className="text-sm">ET DE LA RECHERCHE SCIENTIFIQUE</p>
-            <p className="text-xs font-semibold mt-1">DIRECTION GÉNÉRALE DE L'ENSEIGNEMENT SUPÉRIEUR</p>
-          </div>
-          
-          {/* Logo École */}
-          <div className="flex flex-col items-center">
-            <div className="w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center text-xs text-gray-600">
-              LOGO<br/>ÉCOLE
-            </div>
-          </div>
+        </div>
+        
+        {/* En-tête central */}
+        <div className="text-center mb-4">
+          <h2 className="text-lg font-bold">RÉPUBLIQUE DU CONGO</h2>
+          <p className="text-sm">MINISTÈRE DE L'ENSEIGNEMENT SUPÉRIEUR</p>
+          <p className="text-sm">ET DE LA RECHERCHE SCIENTIFIQUE</p>
+          <p className="text-xs font-semibold mt-1">DIRECTION GÉNÉRALE DE L'ENSEIGNEMENT SUPÉRIEUR</p>
         </div>
         
         <div className="text-center">
@@ -118,6 +111,15 @@ const AttestationPreviewContent = ({ attestation }: AttestationPreviewContentPro
                 <div className="border-b border-gray-300 h-12"></div>
               </div>
               <p className="text-sm font-semibold">Prof. Jean KOSSA</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Logo école en bas à droite */}
+        <div className="flex justify-end mt-6">
+          <div className="flex flex-col items-center">
+            <div className="w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center text-xs text-gray-600">
+              LOGO<br/>ÉCOLE
             </div>
           </div>
         </div>
