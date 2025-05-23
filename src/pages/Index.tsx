@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/layout/Header";
@@ -73,17 +72,6 @@ const Index = () => {
           <div className="protail-container py-16 md:py-24 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
-                <div className="flex items-center space-x-4">
-                  <img 
-                    src="/lovable-uploads/ea49272b-cb75-4074-b109-fad823e259cf.png" 
-                    alt="République du Congo" 
-                    className="w-20 h-20 object-contain bg-white/10 rounded-xl p-2" 
-                  />
-                  <div>
-                    <h2 className="text-xl font-bold">République du Congo</h2>
-                    <p className="text-lg opacity-90">Ministère de l'Enseignement Supérieur</p>
-                  </div>
-                </div>
                 
                 <h1 className="text-4xl md:text-6xl font-bold leading-tight animate-fade-in">
                   Protail DGESUP
