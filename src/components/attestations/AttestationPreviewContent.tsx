@@ -14,62 +14,121 @@ interface AttestationPreviewContentProps {
 const AttestationPreviewContent = ({ attestation }: AttestationPreviewContentProps) => {
   const { generatePDF, isGenerating } = usePDFGeneration();
 
+  const currentDate = new Date().toLocaleDateString('fr-FR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+
+  const attestationNumber = `N° ATT-${new Date().getFullYear()}-${String(Math.floor(Math.random() * 10000)).padStart(4, '0')}`;
+
   return (
-    <Card className="mt-6">
-      <CardHeader>
-        <AttestationPreviewHeader 
-          attestationType={attestation.attestationType}
-          attestationId={attestation.id}
-        />
+    <Card className="mt-6 print:shadow-none">
+      <CardHeader className="text-center border-b print:border-black">
+        <div className="flex justify-between items-start mb-4">
+          {/* Logo Ministère */}
+          <div className="flex flex-col items-center">
+            <div className="w-16 h-16 border-2 border-gray-400 flex items-center justify-center text-xs text-gray-600">
+              LOGO<br/>MINISTÈRE
+            </div>
+          </div>
+          
+          {/* En-tête central */}
+          <div className="flex-1 text-center">
+            <h2 className="text-lg font-bold">RÉPUBLIQUE DU CONGO</h2>
+            <p className="text-sm">MINISTÈRE DE L'ENSEIGNEMENT SUPÉRIEUR</p>
+            <p className="text-sm">ET DE LA RECHERCHE SCIENTIFIQUE</p>
+            <p className="text-xs font-semibold mt-1">DIRECTION GÉNÉRALE DE L'ENSEIGNEMENT SUPÉRIEUR</p>
+          </div>
+          
+          {/* Logo École */}
+          <div className="flex flex-col items-center">
+            <div className="w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center text-xs text-gray-600">
+              LOGO<br/>ÉCOLE
+            </div>
+          </div>
+        </div>
+        
+        <div className="text-center">
+          <h2 className="font-bold text-xl mb-2">
+            {attestation.attestationType === "success" ? "ATTESTATION DE VALIDATION DE PARCOURS" : "ATTESTATION DE SCOLARITÉ"}
+          </h2>
+          <p className="text-sm text-gray-600">{attestationNumber}</p>
+        </div>
       </CardHeader>
       
-      <CardContent className="pt-6">
-        <div className="flex justify-between gap-4">
-          <div className="flex-grow space-y-4">
-            <p className="text-sm">
-              Le Directeur de la Direction Générale de l'Enseignement Supérieur atteste que :
-            </p>
-            <p className="text-sm font-semibold">
-              M./Mme {attestation.name}
-            </p>
-            {attestation.attestationType === "success" ? (
-              <p className="text-sm">
-                a validé avec succès l'année académique
-                <br /><br />
-                <strong>Filière :</strong> {attestation.filiere}
-                <br />
-                <strong>Niveau :</strong> {attestation.niveau}
-                <br />
-                <strong>Année académique :</strong> 2023-2024
-              </p>
-            ) : (
-              <p className="text-sm">
-                est régulièrement inscrit(e) et suit les cours
-                <br /><br />
-                <strong>Filière :</strong> {attestation.filiere}
-                <br />
-                <strong>Niveau :</strong> {attestation.niveau}
-                <br />
-                <strong>Année académique :</strong> 2023-2024
-              </p>
-            )}
-            <p className="text-sm">
-              Cette attestation lui est délivrée pour servir et valoir ce que de droit.
-            </p>
+      <CardContent className="pt-6 print:text-black">
+        <div className="flex justify-between gap-8">
+          <div className="flex-grow space-y-4 text-sm">
+            <p>Le Directeur Général de l'Enseignement Supérieur,</p>
+            
+            <div className="space-y-2 text-xs">
+              <p>Vu la loi n° 008-2016 du 17 juin 2016 portant orientation de l'enseignement supérieur en République du Congo ;</p>
+              <p>Vu le décret n° 2017-203 du 5 juin 2017 portant organisation et fonctionnement de la DGESUP ;</p>
+              <p>Vu les résultats des examens et évaluations de l'année académique en cours ;</p>
+            </div>
+
+            <div className="text-center font-bold my-4">
+              <p>ATTESTE QUE :</p>
+            </div>
+
+            <div className="space-y-3">
+              <p className="font-semibold">M./Mme {attestation.name}</p>
+              
+              {attestation.attestationType === "success" ? (
+                <div className="space-y-2">
+                  <p>a validé avec succès son parcours académique et satisfait à toutes les exigences du programme d'études pour l'obtention du diplôme de :</p>
+                  <p className="font-semibold">
+                    <strong>Niveau :</strong> {attestation.niveau}<br />
+                    <strong>Filière :</strong> {attestation.filiere}
+                  </p>
+                  <p>pour l'année académique 2023-2024.</p>
+                </div>
+              ) : (
+                <div className="space-y-2">
+                  <p>est régulièrement inscrit(e) et suit assidûment les cours dans le programme de :</p>
+                  <p className="font-semibold">
+                    <strong>Niveau :</strong> {attestation.niveau}<br />
+                    <strong>Filière :</strong> {attestation.filiere}
+                  </p>
+                  <p>pour l'année académique 2023-2024.</p>
+                </div>
+              )}
+
+              <p className="mt-4">En foi de quoi, la présente attestation lui est délivrée pour servir et valoir ce que de droit.</p>
+            </div>
           </div>
 
-          <div id="qr-code" className="flex-shrink-0">
+          <div className="flex-shrink-0 flex flex-col items-center">
             <QRCodeSVG 
-              value={attestation.verificationUrl || "https://example.com"} 
-              size={120} 
+              value={attestation.verificationUrl || `https://dgesup.cg/verify/${attestationNumber}`} 
+              size={120}
+              className="print:block"
             />
+            <p className="text-xs text-gray-500 text-center mt-2">Scanner pour vérifier<br/>l'authenticité</p>
           </div>
         </div>
 
-        <AttestationPreviewFooter date={attestation.date} />
+        <div className="flex justify-between items-end mt-8">
+          <div className="space-y-2">
+            <p className="text-sm">Fait à Brazzaville, le {currentDate}</p>
+            <div className="mt-4">
+              <p className="text-sm">Le Directeur Général</p>
+              <div className="h-16 w-32 mt-4 mb-2">
+                <div className="border-b border-gray-300 h-12"></div>
+              </div>
+              <p className="text-sm font-semibold">Prof. Jean KOSSA</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 pt-4 border-t text-center text-xs text-gray-500">
+          <p>Direction Générale de l'Enseignement Supérieur - Avenue Patrice Lumumba, Brazzaville - Congo</p>
+          <p>Tél: +242 06 000 0000 | Email: contact@dgesup.cg | www.dgesup.cg</p>
+        </div>
       </CardContent>
       
-      <CardFooter className="flex justify-end gap-2">
+      <CardFooter className="flex justify-end gap-2 print:hidden">
         <Button 
           variant="outline" 
           onClick={() => generatePDF(attestation)}
