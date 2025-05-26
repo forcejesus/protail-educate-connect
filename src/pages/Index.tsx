@@ -1,63 +1,53 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { ArrowRight, Shield, Users, Award, Globe, Zap, BookOpen } from "lucide-react";
 
 const Index = () => {
   const features = [
     {
       title: "Gestion des Inscriptions",
       description: "Gérez les inscriptions de vos étudiants via un formulaire complet et sécurisé.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-dgesup-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-        </svg>
-      )
+      icon: <Users className="h-8 w-8 text-dgesup-accent" />,
+      color: "from-blue-500/10 to-blue-600/10",
+      borderColor: "border-blue-200"
     },
     {
       title: "Génération d'Attestations",
       description: "Créez des attestations officielles sécurisées par QR Code pour vos étudiants.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-dgesup-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
-      )
+      icon: <Award className="h-8 w-8 text-dgesup-accent" />,
+      color: "from-green-500/10 to-green-600/10",
+      borderColor: "border-green-200"
     },
     {
       title: "Analyse Statistique",
       description: "Visualisez des statistiques détaillées sur vos effectifs par niveau, filière et genre.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-dgesup-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-        </svg>
-      )
+      icon: <Zap className="h-8 w-8 text-dgesup-accent" />,
+      color: "from-yellow-500/10 to-yellow-600/10",
+      borderColor: "border-yellow-200"
     },
     {
       title: "Ressources Officielles",
       description: "Accédez aux documents officiels du ministère (arrêtés, circulaires, formulaires).",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-dgesup-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
-        </svg>
-      )
+      icon: <BookOpen className="h-8 w-8 text-dgesup-accent" />,
+      color: "from-purple-500/10 to-purple-600/10",
+      borderColor: "border-purple-200"
     },
     {
       title: "Forum d'Informations",
       description: "Restez informé des actualités et communiquez avec les autres établissements et la DGESUP.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-dgesup-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-        </svg>
-      )
+      icon: <Globe className="h-8 w-8 text-dgesup-accent" />,
+      color: "from-indigo-500/10 to-indigo-600/10",
+      borderColor: "border-indigo-200"
     },
     {
       title: "Annuaire des Établissements",
       description: "Consultez l'annuaire complet des établissements privés reconnus par l'État.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-dgesup-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-        </svg>
-      )
+      icon: <Shield className="h-8 w-8 text-dgesup-accent" />,
+      color: "from-red-500/10 to-red-600/10",
+      borderColor: "border-red-200"
     }
   ];
 
@@ -66,103 +56,94 @@ const Index = () => {
       <Header />
       
       <main className="flex-grow">
-        {/* Hero Section avec le logo officiel */}
-        <section className="bg-gradient-to-br from-dgesup-primary to-dgesup-secondary text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/10"></div>
-          <div className="protail-container py-16 md:py-24 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-8">
-                
-                <h1 className="text-4xl md:text-6xl font-bold leading-tight animate-fade-in">
-                  Protail DGESUP
+        {/* Hero Section moderne */}
+        <section className="relative bg-gradient-to-br from-dgesup-primary via-dgesup-secondary to-dgesup-primary text-white overflow-hidden">
+          {/* Animated background elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-20 w-72 h-72 bg-white/5 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
+            <div className="absolute top-40 right-20 w-96 h-96 bg-yellow-400/10 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse" style={{animationDelay: '2s'}}></div>
+            <div className="absolute -bottom-20 left-40 w-80 h-80 bg-green-400/10 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse" style={{animationDelay: '4s'}}></div>
+          </div>
+          
+          <div className="protail-container py-24 md:py-32 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="mb-8 animate-fade-in">
+                <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
+                  Portail <span className="text-yellow-300">DGESUP</span>
                 </h1>
-                
                 <div className="space-y-4">
-                  <h3 className="text-2xl md:text-3xl font-semibold">
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-200">
                     Direction Générale de l'Enseignement Supérieur
-                  </h3>
-                  <p className="text-lg md:text-xl opacity-90 max-w-2xl">
+                  </h2>
+                  <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
                     La plateforme officielle pour la gestion de l'enseignement supérieur privé en République du Congo. 
                     Modernisation, transparence et excellence académique au service du développement national.
                   </p>
                 </div>
-                
-                <div className="pt-6 flex flex-col sm:flex-row gap-4">
-                  <Button asChild size="lg" className="bg-white text-dgesup-primary hover:bg-gray-100 shadow-lg">
-                    <Link to="/login">Accéder au Portail Privé</Link>
-                  </Button>
-                  <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                    <Link to="/directory">Consulter l'Annuaire</Link>
-                  </Button>
-                </div>
               </div>
               
-              <div className="hidden md:flex justify-center">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-green-400/20 rounded-3xl blur-3xl"></div>
-                  <img 
-                    src="/lovable-uploads/ea49272b-cb75-4074-b109-fad823e259cf.png" 
-                    alt="Armoiries République du Congo" 
-                    className="relative w-80 h-80 object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center animate-scale-in">
+                <Button asChild size="lg" className="bg-yellow-500 text-black hover:bg-yellow-400 shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 group">
+                  <Link to="/login" className="flex items-center">
+                    Accéder au Portail Privé 
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm">
+                  <Link to="/directory">Consulter l'Annuaire</Link>
+                </Button>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Mission Section */}
-        <section className="py-16 bg-white">
-          <div className="protail-container">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-dgesup-primary mb-4">Notre Mission</h2>
-              <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+        {/* Mission Section modernisée */}
+        <section className="py-20 bg-white relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white"></div>
+          <div className="protail-container relative">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-dgesup-primary mb-6">Notre Mission</h2>
+              <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
                 La Direction Générale de l'Enseignement Supérieur œuvre pour la modernisation et la qualité 
                 de l'enseignement supérieur en République du Congo, en accompagnant les établissements privés 
                 dans leur mission éducative.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center p-6">
-                <div className="w-16 h-16 bg-dgesup-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-dgesup-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              <div className="group text-center p-8 rounded-2xl bg-gradient-to-b from-white to-gray-50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div className="w-20 h-20 bg-gradient-to-br from-dgesup-primary to-dgesup-secondary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Shield className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Régulation & Contrôle</h3>
+                <h3 className="text-xl font-semibold mb-4">Régulation & Contrôle</h3>
                 <p className="text-muted-foreground">Supervision et accréditation des établissements privés d'enseignement supérieur</p>
               </div>
               
-              <div className="text-center p-6">
-                <div className="w-16 h-16 bg-dgesup-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-dgesup-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
+              <div className="group text-center p-8 rounded-2xl bg-gradient-to-b from-white to-gray-50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div className="w-20 h-20 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Zap className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Innovation Numérique</h3>
+                <h3 className="text-xl font-semibold mb-4">Innovation Numérique</h3>
                 <p className="text-muted-foreground">Modernisation des processus administratifs par le numérique</p>
               </div>
               
-              <div className="text-center p-6">
-                <div className="w-16 h-16 bg-dgesup-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-dgesup-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
+              <div className="group text-center p-8 rounded-2xl bg-gradient-to-b from-white to-gray-50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <BookOpen className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Excellence Académique</h3>
+                <h3 className="text-xl font-semibold mb-4">Excellence Académique</h3>
                 <p className="text-muted-foreground">Promotion de la qualité et de l'excellence dans l'enseignement supérieur</p>
               </div>
             </div>
           </div>
         </section>
         
-        {/* Features Section */}
-        <section className="py-16 bg-gray-50">
+        {/* Features Section modernisée */}
+        <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
           <div className="protail-container">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-dgesup-primary">Services du Protail DGESUP</h2>
-              <p className="mt-4 text-lg text-muted-foreground">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-dgesup-primary mb-6">Services du Portail DGESUP</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 Des outils modernes pour optimiser la gestion administrative de votre établissement
               </p>
             </div>
@@ -171,81 +152,95 @@ const Index = () => {
               {features.map((feature, index) => (
                 <div 
                   key={index} 
-                  className="p-6 bg-white border rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  className={`group p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-l-4 ${feature.borderColor} relative overflow-hidden`}
                 >
-                  <div className="mb-4">
-                    {feature.icon}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                  <div className="relative z-10">
+                    <div className="mb-6 group-hover:scale-110 transition-transform duration-300">
+                      {feature.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold mb-4 text-dgesup-primary group-hover:text-dgesup-secondary transition-colors">
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-dgesup-primary">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {feature.description}
-                  </p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Statistics Section */}
-        <section className="py-16 bg-white">
+        {/* Statistics Section modernisée */}
+        <section className="py-20 bg-white">
           <div className="protail-container">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-dgesup-primary">Impact du Protail DGESUP</h2>
-              <p className="mt-4 text-lg text-muted-foreground">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-dgesup-primary mb-6">Impact du Portail DGESUP</h2>
+              <p className="text-xl text-muted-foreground">
                 La transformation numérique de l'enseignement supérieur en chiffres
               </p>
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="bg-gradient-to-br from-dgesup-primary to-dgesup-secondary p-6 rounded-lg text-white text-center">
-                <div className="text-4xl font-bold mb-2">45+</div>
-                <div className="text-lg font-medium">Établissements</div>
+              <div className="group bg-gradient-to-br from-dgesup-primary to-dgesup-secondary p-8 rounded-2xl text-white text-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div className="text-5xl font-bold mb-3 group-hover:scale-110 transition-transform">45+</div>
+                <div className="text-lg font-medium mb-1">Établissements</div>
                 <div className="text-sm opacity-90">agréés et connectés</div>
               </div>
               
-              <div className="bg-gradient-to-br from-green-500 to-green-600 p-6 rounded-lg text-white text-center">
-                <div className="text-4xl font-bold mb-2">12k+</div>
-                <div className="text-lg font-medium">Étudiants</div>
+              <div className="group bg-gradient-to-br from-green-500 to-green-600 p-8 rounded-2xl text-white text-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div className="text-5xl font-bold mb-3 group-hover:scale-110 transition-transform">12k+</div>
+                <div className="text-lg font-medium mb-1">Étudiants</div>
                 <div className="text-sm opacity-90">dans le système</div>
               </div>
               
-              <div className="bg-gradient-to-br from-yellow-500 to-yellow-600 p-6 rounded-lg text-white text-center">
-                <div className="text-4xl font-bold mb-2">5k+</div>
-                <div className="text-lg font-medium">Attestations</div>
+              <div className="group bg-gradient-to-br from-yellow-500 to-yellow-600 p-8 rounded-2xl text-white text-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div className="text-5xl font-bold mb-3 group-hover:scale-110 transition-transform">5k+</div>
+                <div className="text-lg font-medium mb-1">Attestations</div>
                 <div className="text-sm opacity-90">sécurisées par QR code</div>
               </div>
               
-              <div className="bg-gradient-to-br from-red-500 to-red-600 p-6 rounded-lg text-white text-center">
-                <div className="text-4xl font-bold mb-2">98%</div>
-                <div className="text-lg font-medium">Satisfaction</div>
+              <div className="group bg-gradient-to-br from-red-500 to-red-600 p-8 rounded-2xl text-white text-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div className="text-5xl font-bold mb-3 group-hover:scale-110 transition-transform">98%</div>
+                <div className="text-lg font-medium mb-1">Satisfaction</div>
                 <div className="text-sm opacity-90">des établissements</div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="bg-gradient-to-r from-dgesup-primary to-dgesup-secondary text-white py-16">
-          <div className="protail-container text-center">
-            <div className="flex justify-center mb-6">
-              <img 
-                src="/lovable-uploads/ea49272b-cb75-4074-b109-fad823e259cf.png" 
-                alt="République du Congo" 
-                className="w-16 h-16 object-contain bg-white/10 rounded-xl p-2" 
-              />
+        {/* CTA Section modernisée */}
+        <section className="relative bg-gradient-to-br from-dgesup-primary via-dgesup-secondary to-dgesup-primary text-white py-20 overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute top-10 left-10 w-64 h-64 bg-white/5 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+            <div className="absolute bottom-10 right-10 w-80 h-80 bg-yellow-400/10 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+          </div>
+          
+          <div className="protail-container text-center relative z-10">
+            <div className="flex justify-center mb-8">
+              <div className="relative">
+                <img 
+                  src="/lovable-uploads/ea49272b-cb75-4074-b109-fad823e259cf.png" 
+                  alt="République du Congo" 
+                  className="w-20 h-20 object-contain bg-white/10 rounded-2xl p-3 backdrop-blur-sm" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-green-400/20 rounded-2xl blur-lg"></div>
+              </div>
             </div>
-            <h2 className="text-3xl font-bold mb-6">Rejoignez le Protail DGESUP</h2>
-            <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
+            <h2 className="text-4xl font-bold mb-8">Rejoignez le Portail DGESUP</h2>
+            <p className="text-xl mb-10 max-w-3xl mx-auto opacity-90 leading-relaxed">
               Votre établissement privé souhaite intégrer la plateforme officielle du Ministère ? 
               Contactez la Direction Générale de l'Enseignement Supérieur pour débuter le processus d'accréditation.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-dgesup-primary hover:bg-gray-100 shadow-md">
-                <a href="#">Demande d'Accréditation</a>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button asChild size="lg" className="bg-yellow-500 text-black hover:bg-yellow-400 shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 group">
+                <a href="#" className="flex items-center">
+                  Demande d'Accréditation
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button asChild size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm">
                 <Link to="/directory">Consulter l'Annuaire</Link>
               </Button>
             </div>
