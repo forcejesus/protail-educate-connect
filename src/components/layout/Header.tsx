@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
     <header className="bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100 sticky top-0 z-50">
-      <div className="protail-container">
+      <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center space-x-4 group">
             <div className="relative">
@@ -28,15 +28,15 @@ const Header = () => {
           
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <Link to="/" className="text-gray-700 hover:text-dgesup-primary transition-all duration-300 font-medium relative group">
+            <Link to="/" className="text-gray-700 hover:text-dgesup-primary transition-all duration-300 font-medium relative group px-3 py-2 rounded-lg hover:bg-dgesup-primary/5">
               Accueil
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-dgesup-primary transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link to="/directory" className="text-gray-700 hover:text-dgesup-primary transition-all duration-300 font-medium relative group">
+            <Link to="/directory" className="text-gray-700 hover:text-dgesup-primary transition-all duration-300 font-medium relative group px-3 py-2 rounded-lg hover:bg-dgesup-primary/5">
               Annuaire des établissements
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-dgesup-primary transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link to="/login" className="text-gray-700 hover:text-dgesup-primary transition-all duration-300 font-medium relative group">
+            <Link to="/login" className="text-gray-700 hover:text-dgesup-primary transition-all duration-300 font-medium relative group px-3 py-2 rounded-lg hover:bg-dgesup-primary/5">
               Portail Privé
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-dgesup-primary transition-all duration-300 group-hover:w-full"></span>
             </Link>
@@ -44,14 +44,14 @@ const Header = () => {
           
           {/* CTA Button & Mobile Menu */}
           <div className="flex items-center space-x-4">
-            <Button asChild className="hidden sm:flex bg-gradient-to-r from-dgesup-primary to-dgesup-secondary hover:from-dgesup-secondary hover:to-dgesup-primary transition-all duration-300 shadow-lg hover:shadow-xl">
+            <Button asChild className="hidden sm:flex bg-gradient-to-r from-dgesup-primary to-dgesup-secondary hover:from-dgesup-secondary hover:to-dgesup-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
               <Link to="/login">Connexion</Link>
             </Button>
             
             {/* Mobile Menu Button */}
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 border border-gray-200 hover:border-gray-300"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -64,27 +64,27 @@ const Header = () => {
             <nav className="py-4 space-y-2">
               <Link 
                 to="/" 
-                className="block px-4 py-3 text-gray-700 hover:text-dgesup-primary hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium"
+                className="block px-4 py-3 text-gray-700 hover:text-dgesup-primary hover:bg-dgesup-primary/5 rounded-lg transition-all duration-200 font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Accueil
               </Link>
               <Link 
                 to="/directory" 
-                className="block px-4 py-3 text-gray-700 hover:text-dgesup-primary hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium"
+                className="block px-4 py-3 text-gray-700 hover:text-dgesup-primary hover:bg-dgesup-primary/5 rounded-lg transition-all duration-200 font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Annuaire des établissements
               </Link>
               <Link 
                 to="/login" 
-                className="block px-4 py-3 text-gray-700 hover:text-dgesup-primary hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium"
+                className="block px-4 py-3 text-gray-700 hover:text-dgesup-primary hover:bg-dgesup-primary/5 rounded-lg transition-all duration-200 font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Portail Privé
               </Link>
               <div className="px-4 pt-2">
-                <Button asChild className="w-full bg-gradient-to-r from-dgesup-primary to-dgesup-secondary hover:from-dgesup-secondary hover:to-dgesup-primary">
+                <Button asChild className="w-full bg-gradient-to-r from-dgesup-primary to-dgesup-secondary hover:from-dgesup-secondary hover:to-dgesup-primary transform hover:scale-105">
                   <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>Connexion</Link>
                 </Button>
               </div>
