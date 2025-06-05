@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { ArrowRight, Shield, Users, Award, Globe, Zap, BookOpen } from "lucide-react";
+import { ArrowRight, Shield, Users, Award, Globe, Zap, BookOpen, Eye } from "lucide-react";
 
 const Index = () => {
   const features = [
@@ -67,9 +67,24 @@ const Index = () => {
           
           <div className="container mx-auto px-4 py-24 md:py-32 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
+              {/* Logo mis en valeur */}
+              <div className="mb-12 flex justify-center animate-fade-in">
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/30 to-green-400/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
+                  <div className="relative bg-white/15 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-2xl group-hover:shadow-yellow-500/25 transition-all duration-500 group-hover:scale-105">
+                    <img 
+                      src="/lovable-uploads/ea49272b-cb75-4074-b109-fad823e259cf.png" 
+                      alt="République du Congo - DGESUP" 
+                      className="w-24 h-24 md:w-32 md:h-32 object-contain mx-auto drop-shadow-2xl" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-green-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
+                </div>
+              </div>
+
               <div className="mb-8 animate-fade-in">
                 <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-                  Portail <span className="text-yellow-300">DGESUP</span>
+                  Portail <span className="text-yellow-300 drop-shadow-lg">DGESUP</span>
                 </h1>
                 <div className="space-y-4">
                   <h2 className="text-xl md:text-2xl font-semibold text-gray-200">
@@ -83,14 +98,17 @@ const Index = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center animate-scale-in">
-                <Button asChild size="lg" className="bg-yellow-500 text-black hover:bg-yellow-400 shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 group transform hover:scale-105 border-2 border-yellow-400">
+                <Button asChild size="lg" className="bg-yellow-500 text-black hover:bg-yellow-400 shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 group transform hover:scale-105 border-2 border-yellow-400 font-semibold text-lg px-8 py-4">
                   <Link to="/login" className="flex items-center">
                     Accéder au Portail Privé 
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-white/50 text-white hover:bg-white/20 backdrop-blur-sm transition-all duration-300 transform hover:scale-105 border-2">
-                  <Link to="/directory">Consulter l'Annuaire</Link>
+                <Button asChild size="lg" className="bg-white text-dgesup-primary hover:bg-gray-100 shadow-2xl hover:shadow-white/25 transition-all duration-300 transform hover:scale-105 border-2 border-white font-semibold text-lg px-8 py-4 group">
+                  <Link to="/directory" className="flex items-center">
+                    <Eye className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                    Consulter l'Annuaire
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -219,13 +237,13 @@ const Index = () => {
           
           <div className="container mx-auto px-4 text-center relative z-10">
             <div className="flex justify-center mb-8">
-              <div className="relative">
+              <div className="relative group">
                 <img 
                   src="/lovable-uploads/ea49272b-cb75-4074-b109-fad823e259cf.png" 
                   alt="République du Congo" 
-                  className="w-20 h-20 object-contain bg-white/10 rounded-2xl p-3 backdrop-blur-sm" 
+                  className="w-20 h-20 object-contain bg-white/15 rounded-2xl p-3 backdrop-blur-sm shadow-2xl group-hover:scale-110 transition-transform duration-300" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-green-400/20 rounded-2xl blur-lg"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-green-400/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
               </div>
             </div>
             <h2 className="text-4xl font-bold mb-8">Rejoignez le Portail DGESUP</h2>
@@ -234,14 +252,17 @@ const Index = () => {
               Contactez la Direction Générale de l'Enseignement Supérieur pour débuter le processus d'accréditation.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button asChild size="lg" className="bg-yellow-500 text-black hover:bg-yellow-400 shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 group transform hover:scale-105 border-2 border-yellow-400">
+              <Button asChild size="lg" className="bg-yellow-500 text-black hover:bg-yellow-400 shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 group transform hover:scale-105 border-2 border-yellow-400 font-semibold">
                 <a href="#" className="flex items-center">
                   Demande d'Accréditation
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white/50 text-white hover:bg-white/20 backdrop-blur-sm transition-all duration-300 transform hover:scale-105 border-2">
-                <Link to="/directory">Consulter l'Annuaire</Link>
+              <Button asChild size="lg" className="bg-white text-dgesup-primary hover:bg-gray-100 shadow-2xl hover:shadow-white/25 transition-all duration-300 transform hover:scale-105 border-2 border-white font-semibold group">
+                <Link to="/directory" className="flex items-center">
+                  <Eye className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                  Consulter l'Annuaire
+                </Link>
               </Button>
             </div>
           </div>
