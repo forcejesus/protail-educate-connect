@@ -1,10 +1,11 @@
 
 import { useState, useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Moon, Sun, LogOut } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
 import { Button } from "@/components/ui/button";
 import { Toggle } from "@/components/ui/toggle";
+import { useToast } from "@/hooks/use-toast";
 import { 
   SidebarProvider, 
   Sidebar, 
@@ -18,37 +19,45 @@ import {
   SidebarGroupLabel,
   SidebarGroupContent 
 } from "@/components/ui/sidebar";
-import { cn } from "@/lib/utils";
 
 import DashboardNavItems from "./DashboardNavItems";
 
 const DashboardLayout = () => {
   const { theme, setTheme } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
+  const navigate = useNavigate();
+  const { toast } = useToast();
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  // Handle logout
+  // Handle logout - redirect to root
   const handleLogout = () => {
     console.log("Logging out");
-    // Will be implemented with authentication system
+    toast({
+      title: "Déconnexion réussie",
+      description: "À bientôt sur le Portail DGESUP",
+    });
+    navigate("/");
   };
 
   return (
     <SidebarProvider>
       <div className="flex min-h-screen w-full bg-background text-foreground">
-        <Sidebar>
-          <SidebarHeader>
-            <div className="flex items-center p-2">
-              <img 
-                src="/lovable-uploads/8edc322a-90a1-42d5-87f1-0aabc3e173a9.png" 
-                alt="DGESUP Logo" 
-                className="w-10 h-10 mr-2 object-contain" 
-              />
+        <Sidebar className="border-r border-gray-200">
+          <SidebarHeader className="border-b border-gray-100 p-4">
+            <div className="flex items-center space-x-3">
+              <div className="relative">
+                <img 
+                  src="/lovable-uploads/ea49272b-cb75-4074-b109-fad823e259cf.png" 
+                  alt="DGESUP Logo" 
+                  className="w-12 h-12 object-contain" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-dgesup-primary/20 to-dgesup-accent/20 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
               <div>
-                <h1 className="font-bold text-lg">Protail <span className="text-[#e11e1e]">DGESUP</span></h1>
+                <h1 className="font-bold text-lg text-dgesup-primary">Portail <span className="text-dgesup-secondary">DGESUP</span></h1>
                 <p className="text-xs text-muted-foreground">Administration</p>
               </div>
             </div>
@@ -56,7 +65,7 @@ const DashboardLayout = () => {
           
           <SidebarContent>
             <SidebarGroup>
-              <SidebarGroupLabel>Gestion</SidebarGroupLabel>
+              <SidebarGroupLabel className="text-dgesup-primary font-semibold">Gestion</SidebarGroupLabel>
               <SidebarGroupContent>
                 <SidebarMenu>
                   <DashboardNavItems />
@@ -65,22 +74,23 @@ const DashboardLayout = () => {
             </SidebarGroup>
           </SidebarContent>
           
-          <SidebarFooter>
-            <div className="p-2 flex flex-col gap-2">
-              {/* École information added before theme toggle */}
-              <div className="border-t pt-2 mb-2">
-                <div className="flex items-center">
-                  <div className="w-8 h-8 border-2 border-gray-400 rounded-full flex items-center justify-center text-xs text-gray-600 mr-2">
+          <SidebarFooter className="border-t border-gray-100 p-4">
+            <div className="space-y-4">
+              {/* École information */}
+              <div className="border-t pt-3">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-dgesup-primary to-dgesup-secondary rounded-full flex items-center justify-center text-white font-semibold text-sm shadow-md">
                     ÉC
                   </div>
                   <div className="text-sm">
-                    <p className="font-semibold">École Nationale</p>
+                    <p className="font-semibold text-gray-900">École Nationale</p>
                     <p className="text-xs text-muted-foreground">Brazzaville, Congo</p>
                   </div>
                 </div>
               </div>
               
-              <div className="flex justify-between">
+              {/* Theme toggle */}
+              <div className="flex justify-center">
                 <Toggle
                   aria-label="Toggle theme"
                   pressed={theme === "dark"}
@@ -89,17 +99,18 @@ const DashboardLayout = () => {
                       setTheme(theme === "dark" ? "light" : "dark");
                     }
                   }}
-                  className="p-2"
+                  className="w-full justify-start h-10 px-3 data-[state=on]:bg-dgesup-primary/10 data-[state=on]:text-dgesup-primary"
                 >
                   {theme === "dark" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
                   <span className="ml-2 text-sm">{theme === "dark" ? "Mode sombre" : "Mode clair"}</span>
                 </Toggle>
               </div>
               
+              {/* Logout button */}
               <Button 
                 variant="destructive" 
                 size="sm" 
-                className="w-full justify-start"
+                className="w-full justify-start bg-red-500 hover:bg-red-600 shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-[1.02]"
                 onClick={handleLogout}
               >
                 <LogOut className="mr-2 h-4 w-4" />
@@ -109,9 +120,9 @@ const DashboardLayout = () => {
           </SidebarFooter>
         </Sidebar>
         
-        <div className="flex-1 overflow-auto">
+        <div className="flex-1 overflow-auto bg-gray-50/50">
           {/* Congo flag color bar */}
-          <div className="h-1 congo-gradient sticky top-0 z-40"></div>
+          <div className="h-1 bg-gradient-to-r from-yellow-400 via-green-400 to-red-400 sticky top-0 z-40"></div>
           <main className="p-6">
             <Outlet />
           </main>
